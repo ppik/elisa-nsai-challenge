@@ -1,0 +1,79 @@
+Starting 2018-03-16 12:39:09.369558
+Reading data from files: ('/home/peeter/src/gitlab.com/TeamMindTitan/workshop-naai/data/normals.parquet', '/home/peeter/src/gitlab.com/TeamMindTitan/workshop-naai/data/probs.parquet')
+Total data records: 5819705
+Converting data for machine learning model
+Categorical features: ['event_id', 'event_result', 'cause_code', 'sub_cause_code', 'mecontext']
+Quantitative features: ['ident', 'date', 'event_count', 'probs']
+Positive examples 500
+Negative examples 5000
+Total converted data records: 5500
+Starting model training
+Available features: ['event_count', 'event_id_0', 'event_id_1', 'event_id_11', 'event_id_12', 'event_id_13', 'event_id_14', 'event_id_15', 'event_id_2', 'event_id_4', 'event_id_5', 'event_id_6', 'event_id_7', 'event_id_8', 'event_result_ABORT', 'event_result_IGNORE', 'event_result_REJECT', 'event_result_SUCCESS', 'cause_code_EPS_SERVICES_AND_NON_EPS_SERVICES_NOT_ALLOWED_OPERATOR_DETERMINED_BARRING', 'cause_code_EPS_SERVICES_NOT_ALLOWED', 'cause_code_EPS_SERVICES_NOT_ALLOWED_IN_THIS_PLMN', 'cause_code_ESM_FAILURE', 'cause_code_ESM_NETWORK_FAILURE', 'cause_code_HO_FAILURE_IN_TARGET_EPC_ENB_OR_TARGET_SYSTEM', 'cause_code_IMPLICITLY_DETACHED', 'cause_code_INTER_RAT_REDIRECTION', 'cause_code_INVALID_EPS_BEARER_IDENTITY', 'cause_code_INVALID_MANDATORY_INFORMATION', 'cause_code_INVALID_TRANSACTION_IDENTIFIER_VALUE', 'cause_code_LAST_PDN_DISCONNECTION_NOT_ALLOWED', 'cause_code_LLC_OR_SNDCP_FAILURE_A_OR_GB_MODE_ONLY', 'cause_code_MESSAGE_TYPE_NOT_COMPATIBLE_WITH_PROTOCOL_STATE', 'cause_code_MESSAGE_TYPE_NOT_COMPATIBLE_WITH_THE_PROTOCOL_STATE', 'cause_code_MS_IDENTITY_CANNOT_BE_DERIVED_BY_THE_NETWORK', 'cause_code_NETWORK_FAILURE', 'cause_code_NOCAUSECODE', 'cause_code_NO_EPS_BEARER_CONTEXT_ACTIVATED', 'cause_code_NO_PDP_CONTEXT_ACTIVATED', 'cause_code_PDP_TYPE_IPV4_ONLY_ALLOWED', 'cause_code_PROTOCOL_ERROR_UNSPECIFIED', 'cause_code_PTI_MISMATCH', 'cause_code_REACTIVATION_REQUIRED', 'cause_code_REGULAR_DEACTIVATION', 'cause_code_SM_NETWORK_FAILURE', 'cause_code_SUCCESSFUL_HANDOVER', 'cause_code_UE_IDENTITY_CANNOT_BE_DERIVED_BY_THE_NETWORK', 'cause_code_UNKNOWN_CAUSE_CODE_PROT_TYPE_0', 'cause_code_UNKNOWN_TARGETID', 'cause_code_UNSPECIFIED_FAILURE_MISCELLANEOUS_CAUSE', 'cause_code_UNSPECIFIED_RADIO_NETWORK_LAYER_CAUSE', 'cause_code_X2_HANDOVER_TRIGGERED', 'sub_cause_code_ABORTED_BY_NEW_REQUEST', 'sub_cause_code_ABORT_DUE_TO_ATTACH_REQUEST', 'sub_cause_code_ABORT_DUE_TO_EXTENDED_SERVICE_REQUEST', 'sub_cause_code_ABORT_DUE_TO_INITIAL_UE_MESSAGE', 'sub_cause_code_ABORT_DUE_TO_TAU_REQUEST', 'sub_cause_code_ALL_PACKET_ORIENTED_SERVICES_BARRED', 'sub_cause_code_APN_RESOLVING_FAILED__NO_MATCH', 'sub_cause_code_AUTH_FAILED_ESTABLISH_CIPHERED_CONNECTION_FAILED', 'sub_cause_code_AUTH_FAILED_MAP_ERROR', 'sub_cause_code_AUTH_FAILED_NO_ANSWER_TO_AUTHENTICATION_AND_CIPHERING_REQUEST', 'sub_cause_code_AUTH_FAILED_T3460_TIMEOUT', 'sub_cause_code_BSSGP_STATUS_RECEIVED', 'sub_cause_code_CANCEL_LOCATION_RECEIVED', 'sub_cause_code_CAUSE_129_FROM_PGW_NEW_PDP_TYPE_DUE_TO_NETWORK_PREFERENCE', 'sub_cause_code_COLLIDING_TEMPORARY_LOGICAL_LINK_IDENTITIES_TLLIS', 'sub_cause_code_CONTEXT_REQUEST_RECEIVED', 'sub_cause_code_CREATE_SESSION_RESPONSE_WITH_CC_FROM_SGW', 'sub_cause_code_CSFB_FAILURE_DUE_TO_ENODEB', 'sub_cause_code_DETACH_OF_INACTIVE_SUBSCRIBERS_INITIATED', 'sub_cause_code_DETACH_TRIGGERED_PDN_DISCONNECTION', 'sub_cause_code_ERROR_INDICATION_FROM_GGSN_OR_SGW_RECEIVED', 'sub_cause_code_GGSN_RESPONDED_WITH_REJECT_CAUSE_CONTEXT_NON_EXISTENT', 'sub_cause_code_GGSN_RESPONDED_WITH_REJECT_CAUSE_DIFFERENT_FROM_192_DURING_SGSN_INITIATED_MODIFICATION', 'sub_cause_code_GTPV2_MODIFY_BEARER_RESPONSE_NOT_RECEIVED', 'sub_cause_code_GTP_SENDING_OF_MESSAGE_TOWARDS_SGSN_FAILED', 'sub_cause_code_GTP_TIMEOUT', 'sub_cause_code_HANDOVER_CANCELLED_RECEIVED', 'sub_cause_code_IDENTICAL_MESSAGES_RECEIVED', 'sub_cause_code_INITIAL_CONTEXT_SETUP_FAILURE', 'sub_cause_code_INTEGRITY_FAIL', 'sub_cause_code_INTERFERED_BY_ATTACH', 'sub_cause_code_INTERFERED_BY_DETACH', 'sub_cause_code_INTERFERED_BY_ROUTING_AREA_UPDATE', 'sub_cause_code_INTERFERED_BY_TAU', 'sub_cause_code_INTERFERENCE_OF_ACTIVATION_DEACTIVATION', 'sub_cause_code_INTERFERENCE_OF_ACTIVATION_DETACH', 'sub_cause_code_INTERFERENCE_OF_ACTIVATION_MOBILITY_PROCEDURE', 'sub_cause_code_INTERFERING_S1_RESET', 'sub_cause_code_IU_CONNECTION_RELEASE', 'sub_cause_code_MME_LOOKUP_FAILED__TAI_NOT_FOUND_IN_DNS', 'sub_cause_code_MODIFY_BEARER_REQUEST_FAILURE_OR_TIMEOUT_IN_SERVICE_REQUEST_PROCEDURE', 'sub_cause_code_MODIFY_BEARER_REQUEST_OR_CREATE_SESSION_REQUEST_TOWARDS_SGW_UNSUCCESSFUL', 'sub_cause_code_MSC_SUPERVISION_REJECT_CAUSE_17', 'sub_cause_code_MS_NOT_RESPONDING', 'sub_cause_code_NAS_NON_DELIVERY_INDICATION_RECEIVED_DURING_AUTHENTICATION_PROCEDURE', 'sub_cause_code_NAS_NON_DELIVERY_INDICATION_RECEIVED_DURING_SECURITY_MODE_CONTROL_PROCEDURE', 'sub_cause_code_NOT_EMM_REGISTERED', 'sub_cause_code_NO_ACTIVE_DEFAULT_BEARER_FROM_SOURCE_NODE', 'sub_cause_code_NO_ESM_INFORMATION_RESPONSE_FROM_UE', 'sub_cause_code_NO_EXPECTED_TAU_REQUEST_AFTER_HO', 'sub_cause_code_NO_E_RAB_SETUP_RESPONSE_FROM_ENODEB', 'sub_cause_code_NO_RESPONSE_FROM_MS_DURING_SGSN_INITIATED_MODIFICATION', 'sub_cause_code_NO_VALUE', 'sub_cause_code_PDP_DEACTIVATED_SILENTLY_IN_SGSN', 'sub_cause_code_PERIODIC_OR_INTRA_RAU_FOR_UNKNOWN_SUBSCRIBER', 'sub_cause_code_QOS_CHANGED_BY_GGSN_DURING_RAU_OR_SGSN_OR_BSS_MODIFICATION_PROCEDURE', 'sub_cause_code_RAN_TIMEOUT', 'sub_cause_code_REJECT_CAUSE_046_FROM_RNC_RADIO_CONNECTION_WITH_UE_LOST', 'sub_cause_code_REJECT_CAUSE_15_FROM_RNC', 'sub_cause_code_REMOVAL_OF_SUBSCRIPTION_DATA_IN_HLR', 'sub_cause_code_RESENDING_LOOP', 'sub_cause_code_RESENDING_OF_REQUEST', 'sub_cause_code_RIL3_MESSAGE_FAILED', 'sub_cause_code_RIL3_MESSAGE_FAILED_AUTHENTICATION_REQUEST', 'sub_cause_code_RNC_DID_NOT_RETURN_A_VALID_RESPONSE_WHEN_TYPE_IS_MODIFY', 'sub_cause_code_SECURITY_MODE_REJECT_FROM_UE', 'sub_cause_code_SERVICE_REQUEST_FAILURE_DUE_TO_HANDOVER_INTERFERENCE', 'sub_cause_code_SESSION_INTERFERENCE', 'sub_cause_code_SGSN_CONTEXT_REQUEST_RECEIVED', 'sub_cause_code_SGSN_CONTEXT_RESPONSE__IMSI_NOT_KNOWN', 'sub_cause_code_SGSN_INTERNAL', 'sub_cause_code_SIGNALING_INTERFERENCE', 'sub_cause_code_SM_STATUS_TI_FLAG_OR_VALUE_ERROR', 'sub_cause_code_SUBSCRIPTION_CANCELLED', 'sub_cause_code_SUBSCRIPTION_WITHDRAWN_FROM_HSS', 'sub_cause_code_SUCCESS', 'sub_cause_code_SUSPEND_RECEIVED', 'sub_cause_code_TARGET_ENODEB_ID_INVALID', 'sub_cause_code_TIMEOUT_INITIAL_CONTEXT_SETUP_RESPONSE', 'sub_cause_code_TIMEOUT_PAGING', 'sub_cause_code_TIMEOUT_UE_CONTEXT_RELEASE_REQUEST', 'sub_cause_code_UPD_LOC_FAILED_MAP_ERROR', 'mecontext_EMME1', 'mecontext_EMME2']
+Performing search for optimal training parameters
+Using estimator LGBMClassifier(boosting_type='gbdt', class_weight=None, colsample_bytree=1.0,
+        learning_rate=0.1, max_depth=-1, min_child_samples=20,
+        min_child_weight=0.001, min_split_gain=0.0, n_estimators=100,
+        n_jobs=-1, num_leaves=31, objective=None, random_state=None,
+        reg_alpha=0.0, reg_lambda=0.0, silent=True, subsample=1.0,
+        subsample_for_bin=200000, subsample_freq=1)
+Optimizing parameters: {'boosting_type': ['gbdt'], 'class_weight': ['balanced'], 'colsample_bytree': [1.0], 'learning_rate': [0.1], 'n_estimators': [90], 'min_child_samples': [20], 'num_leaves': [31], 'reg_alpha': [0.0], 'reg_lambda': [0.4]}
+Best params: {'boosting_type': 'gbdt', 'class_weight': 'balanced', 'colsample_bytree': 1.0, 'learning_rate': 0.1, 'min_child_samples': 20, 'n_estimators': 90, 'num_leaves': 31, 'reg_alpha': 0.0, 'reg_lambda': 0.4}
+Best score: 0.9467272727272728
+Using features: ['event_count', 'event_id_0', 'event_id_1', 'event_id_12', 'event_id_13', 'event_id_14', 'event_id_15', 'event_id_2', 'event_id_4', 'event_id_5', 'event_id_6', 'event_id_7', 'event_id_8', 'event_result_ABORT', 'event_result_IGNORE', 'event_result_REJECT', 'event_result_SUCCESS', 'cause_code_IMPLICITLY_DETACHED', 'cause_code_NETWORK_FAILURE', 'cause_code_NOCAUSECODE', 'cause_code_REACTIVATION_REQUIRED', 'cause_code_REGULAR_DEACTIVATION', 'cause_code_SM_NETWORK_FAILURE', 'cause_code_SUCCESSFUL_HANDOVER', 'cause_code_UNKNOWN_CAUSE_CODE_PROT_TYPE_0', 'sub_cause_code_AUTH_FAILED_ESTABLISH_CIPHERED_CONNECTION_FAILED', 'sub_cause_code_DETACH_OF_INACTIVE_SUBSCRIBERS_INITIATED', 'sub_cause_code_DETACH_TRIGGERED_PDN_DISCONNECTION', 'sub_cause_code_GGSN_RESPONDED_WITH_REJECT_CAUSE_CONTEXT_NON_EXISTENT', 'sub_cause_code_INTERFERED_BY_DETACH', 'sub_cause_code_INTERFERED_BY_TAU', 'sub_cause_code_IU_CONNECTION_RELEASE', 'sub_cause_code_MS_NOT_RESPONDING', 'sub_cause_code_NO_VALUE', 'sub_cause_code_QOS_CHANGED_BY_GGSN_DURING_RAU_OR_SGSN_OR_BSS_MODIFICATION_PROCEDURE', 'sub_cause_code_SGSN_CONTEXT_REQUEST_RECEIVED', 'sub_cause_code_SIGNALING_INTERFERENCE', 'sub_cause_code_SUCCESS', 'sub_cause_code_TIMEOUT_INITIAL_CONTEXT_SETUP_RESPONSE', 'sub_cause_code_TIMEOUT_PAGING', 'mecontext_EMME1', 'mecontext_EMME2']
+Fitting model 5
+Train accuracy 0.9977272727272727
+Train confusion matrix 
+[[4001   10]
+ [   0  389]]
+Test accuracy 0.9690909090909091
+Test confusion matrix 
+[[962  27]
+ [  7 104]]
+Fitting model 5
+Train accuracy 0.9965909090909091
+Train confusion matrix 
+[[3987   15]
+ [   0  398]]
+Test accuracy 0.9727272727272728
+Test confusion matrix 
+[[974  24]
+ [  6  96]]
+Fitting model 5
+Train accuracy 0.9965909090909091
+Train confusion matrix 
+[[3987   15]
+ [   0  398]]
+Test accuracy 0.9609090909090909
+Test confusion matrix 
+[[968  30]
+ [ 13  89]]
+Fitting model 5
+Train accuracy 0.9975
+Train confusion matrix 
+[[3991   11]
+ [   0  398]]
+Test accuracy 0.9636363636363636
+Test confusion matrix 
+[[965  33]
+ [  7  95]]
+Fitting model 5
+Train accuracy 0.9981818181818182
+Train confusion matrix 
+[[3983    8]
+ [   0  409]]
+Test accuracy 0.9518181818181818
+Test confusion matrix 
+[[972  37]
+ [ 16  75]]
+Average results:
+test_accuracy_score                             0.963636
+test_confusion_matrix       [[968.2, 30.2], [9.8, 91.8]]
+train_accuracy_score                            0.997318
+train_confusion_matrix    [[3989.8, 11.8], [0.0, 398.4]]
+dtype: object
+Standard deviation of results:
+test_accuracy_score     0.008055
+train_accuracy_score    0.000708
+dtype: float64
+Saving model to /home/peeter/src/github.com/ppik/elisa-nsai-challenge/models/2018-03-16_123909.pkl
+All done 2018-03-16 12:43:03.385903, elapsed: 0:03:54.016345

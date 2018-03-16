@@ -70,6 +70,14 @@ def train_model(df):
 
     params = grid.best_params_
 
+    # Dropping unimportart features
+    feature_importances = grid.best_estimator_.feature_importances_
+
+    feature_names = [name for name, importance in zip(feature_names, feature_importances) if importance > 1]
+
+    logger.info(f'Using features: {feature_names}')
+    df = df[feature_names + ['probs']]
+
     # Fit k models on different training/validation splits
     k = 5
 
