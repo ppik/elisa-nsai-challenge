@@ -53,10 +53,11 @@ def train_model(df):
         'class_weight': ['balanced'],
         'colsample_bytree': [1.0],
         'learning_rate': [0.1],
-        'n_estimators': [80, 90, 100],
+        'n_estimators': [90],
+        'min_child_samples': [20],
         'num_leaves': [31],
         'reg_alpha': [0.],
-        'reg_lambda': [0.2, 0.3],
+        'reg_lambda': [0.4],
     }
     logger.info(f'Optimizing parameters: {param_grid}')
 
