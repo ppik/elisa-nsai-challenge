@@ -1,0 +1,22 @@
+# IPython log file
+
+
+from sklearn.externals import joblib
+models = joblib.load('models/2018-03-16_091744.pkl')
+feature_names = models[0].feature_names
+feature_importances = pd.DataFrame([model.feature_importances_ for model in models])
+import pandas as pd
+feature_importances = pd.DataFrame([model.feature_importances_ for model in models])
+feature_importances.columns=feature_names
+sorted_importances = feature_importances.mean().sort_values()
+sorted_importances.to_csv('models/2018-03-16_091744-feature_importances.csv')
+from sklearn.model_selection import GridSearchCV
+grid = GridSearchCV(model, {})
+grid = GridSearchCV(models[0], {})
+get_ipython().run_line_magic('pinfo', 'grid')
+model = models[0]
+model.feature_importances_
+feature_names
+feature_names
+feature_names + 'probs'
+feature_names + ['probs']

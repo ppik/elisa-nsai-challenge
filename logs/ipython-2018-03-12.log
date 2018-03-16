@@ -1,0 +1,60 @@
+# IPython log file
+
+
+import pandas as pd
+normals = pd.read_parquet('normals.parquet')
+DATA_DIR = '/home/peeter/src/gitlab.com/TeamMindTitan/workshop-naai/data/'
+normals = pd.read_parquet(DATA_DIR+ 'normals.parquet')
+probs = pd.read_parquet(DATA_DIR+'probs.parquet')
+phone_models = pd.read_msgpack(DATA_DIR+'phone_models.msgpack')
+probs_cause_codes = np.setdiff1d(probs.cause_code.unique(), normals.cause_code.unique(), assume_unique=True)
+import numpy as np.
+import numpy as np
+probs_cause_codes = np.setdiff1d(probs.cause_code.unique(), normals.cause_code.unique(), assume_unique=True)
+probs.cause_code.isin(probs_cause_codes)
+probs.ident
+probs[probs.cause_code.isin(probs_cause_codes)].ident.unique()
+len(probs[probs.cause_code.isin(probs_cause_codes)].ident.unique())
+normals.head()
+normals.sub_cause_code.unique()
+probs.sub_cause_code.unique()
+probs_sub_cause_codes = np.setdiff1d(probs.sub_cause_code.unique(), normals.sub_cause_code.unique(), assume_unique=True)
+probs_sub_cause_codes
+probs[probs.sub_cause_code.isin(probs_sub_cause_codes)].ident.unique()
+len(probs[probs.sub_cause_code.isin(probs_sub_cause_codes)].ident.unique())
+probs[probs.cause_code.isin(probs_cause_codes)].ident.unique()
+probs.head()
+normals.event_result.unique()
+probs.event_result.unique()
+normals.event_id.unique()
+probs.event_id.unique()
+normals.event_id.unique().sort()
+sorted(normals.event_id.unique())
+sorted(probs.event_id.unique())
+normals.mecontext.unique()
+probs.mecontext.unique()
+probs.groupby(['event_id', 'event_result'])
+probs.groupby(['event_id', 'event_result']).count()
+groups = probs.groupby(['event_id', 'event_result'])
+groups.keys()
+groups
+groups[0]
+groups
+groups.keys
+groups.values
+{group for group, _ in probs.groupby(['event_id', 'event_result'])}
+probs_event_id_result = {group for group, _ in probs.groupby(['event_id', 'event_result'])}
+normals_event_id_result = {group for group, _ in normals.groupby(['event_id', 'event_result'])}
+probs_event_id_result - normals_event_id_result
+normals_event_id_result - probs_event_id_result
+probs.groupby(['event_id', 'event_result']).count()
+probs.groupby(['event_id', 'event_result']).count('ident')
+probs.groupby(['event_id', 'event_result']).count()['ident']
+probs.groupby(['event_id', 'event_result']).count()['ident'].hist()
+get_ipython().run_line_magic('matplotlib', '')
+probs.groupby(['event_id', 'event_result']).count()['ident'].hist()
+normals.groupby(['event_id', 'event_result']).count()['ident'].hist()
+normals.groupby(['event_id', 'event_result']).count()['ident']
+normals.groupby(['event_id', 'event_result']).count()['ident']/len(normals)
+normals.groupby(['event_id', 'event_result']).count()['ident']
+probs.head()

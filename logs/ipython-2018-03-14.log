@@ -1,0 +1,262 @@
+# IPython log file
+
+
+import pandas as pd
+DATA_DIR = '/home/peeter/src/gitlab.com/TeamMindTitan/workshop-naai/data/'
+probs = pd.read_parquet(DATA_DIR+'probs.parquet')
+probs = pd.read_parquet(DATA_DIR+'probs.parquet', engine='pyarrow')
+normals = pd.read_parquet(DATA_DIR+'normals.parquet', engine='pyarrow')
+get_ipython().run_line_magic('pinfo', 'pd.read_parquet')
+probs = pd.read_parquet(DATA_DIR+'probs.parquet')
+normals = pd.read_parquet(DATA_DIR+'normals.parquet')
+probs.start 
+import numpy as pn
+import numpy as np
+np.dtype('datetime64[s]')
+np.dtype('datetime64[s]') == np.dtype('M8[s]')
+np.dtype('M8[s]')
+probs.event_id
+probs.event_id = probs_event_id.astype('str')
+probs.event_id = probs.event_id.astype('str')
+normals.event_id = normals.event_id.astype('str')
+probs.start = probs.start.astype('datetime64[s]')
+normals.start = normals.start.astype('datetime64[s]')
+probs.start.date()
+probs.start.date
+probs.start.dt.date
+probs.date = probs.start.dt.date
+probs['date'] = probs.start.dt.date
+normals['date'] = normals.start.dt.date
+probs.date
+probs['date'] = pd.to_datetime(probs.start.dt.date)
+probs['date']
+probs['start']
+normals['date'] = pd.to_datetime(normals.start.dt.date)
+normals.head()
+probs.ident.dtype
+probs.ident.astype('int')
+probs.ident = probs.ident.astype('int')
+normals.ident = normals.ident.astype('int')
+probs.head()
+normals.head()
+normals_keys = {key for key, _ in probs.groupby(['ident', date])}
+normals_keys = {key for key, _ in probs.groupby(['ident', 'date'])}
+probs_keys = {key for key, _ in probs.groupby(['ident', 'date'])}
+normals_keys = {key for key, _ in normals.groupby(['ident', 'date'])}
+probs_keys & normals_keys
+probs_keys
+probs.date
+probs['date'] = pd.to_datetime(probs.start.dt.date)
+probs.date
+normals_keys
+normals.date
+get_ipython().run_line_magic('pinfo', 'pd.to_datetime')
+get_ipython().run_line_magic('pinfo', 'pd.to_datetime')
+probs.start.dt.date
+probs.start.dt.date.astype('datetime[D]')
+probs.start.dt.date.astype('datetime[d]')
+probs.start.dt.date.astype('datetime64[D]')
+probs['date'] = probs.start.dt.date.astype('datetime64[D]')
+normals['date'] = normals.start.dt.date.astype('datetime64[D]')
+normals.date.dtype
+probs.date.dtype
+probs.date
+probs.date.describe()
+probs.date.isna().sum()
+probs.date.isnull.sum()
+probs.date.isnull().sum()
+probs = probs.drop(columns=['date'])
+normals = normals.drop(columns=['date'])
+probs['date'] = probs.start.dt.date.astype('datetime64[D]')
+probs['date'].dtype
+normals['date'] = normals.start.dt.date.astype('datetime64[D]')
+probs = probs.drop(columns=['date'])
+normals = normals.drop(columns=['date'])
+probs['date'] = pd.to_datetime(probs.start.dt.date)
+probs['date'].dtype
+probs.date.dtype
+normals['date'] = pd.to_datetime(normals.start.dt.date)
+normals.date.dtype
+probs_keys = {key for key, _ in probs.groupby(['ident', 'date'])}
+normals_keys = {key for key, _ in normals.groupby(['ident', 'date'])}
+probs_keys & normals_keys
+probs_keys
+normals_keys
+x = normals_keys.pop()
+x[0]
+x[1]
+x[1].date()
+str(x[1].date())
+normals_keys = {(key[0], str(key[1].date())) for key, _ in normals.groupby(['ident', 'date'])}
+probs_keys = {(key[0], str(key[1].date())) for key, _ in probs.groupby(['ident', 'date'])}
+probs_keys & normals_keys
+probs_keys
+probs
+probs.head()
+probs['event_count'] = 1
+probs.head()
+normals['event_count'] = 1
+categorical = ['event_result', 'cause_code', 'sub_cause_code', 'event_id']
+df = pd.concat([normals, probs])
+other = ['ident', 'probs']
+df = pd.concat([df[other], pd.get_dummies(df[catecorical]), axis=1])
+df = pd.concat([df[other], pd.get_dummies(df[catecorical])], axis=1)
+df = pd.concat([df[other], pd.get_dummies(df[categorical])], axis=1)
+df.head()
+ident.unique()
+df.ident.unique()
+len(df.ident.unique())
+len({key for key, _ in df.groupby(['ident', 'date'])})
+other = ['ident', 'probs', 'date']
+df = pd.concat([normals, probs])
+df = pd.concat([df[other], pd.get_dummies(df[categorical])], axis=1)
+len({key for key, _ in df.groupby(['ident', 'date'])})
+from sklearn.model_selection import train_test_split
+df_day = df.groupby(['ident', 'date']).sum()
+df_day.head()
+df.head()
+probs.head()
+other = ['ident', 'probs', 'date', 'event_count']
+df = pd.concat([df[other], pd.get_dummies(df[categorical])], axis=1)
+df = pd.concat([normals, probs])
+df = pd.concat([df[other], pd.get_dummies(df[categorical])], axis=1)
+df_day = df.groupby(['ident', 'date']).sum()
+df_day.head()
+get_ipython().run_line_magic('pinfo', 'df_day.diff')
+get_ipython().run_line_magic('pinfo', 'df_day.apply')
+df_day_probs = df_day[df_day.probs>0]
+np.max(np.abs(df_day_probs.probs - df_day_probs.event_count))
+df_day_probs.probs.astype(bool)
+df_day_probs.probs.astype(bool).sum()
+df_day.probs = df_day.probs > 0
+df_day.head()
+df_day.columns
+df_day.columns - {'probs',}
+get_ipython().run_line_magic('pinfo', 'train_test_split')
+df_day.columns
+df_day.columns.set_names
+df_day.columns.set_names()
+feature_names = df_day.columns
+get_ipython().run_line_magic('pinfo', 'feature_names.drop')
+feature_names = df_day.columns.drop('probs')
+feature_names
+'probs' in feature_names
+'probs' in df_day.columns
+feature_names
+X_train, X_test, y_train, y_test = train_test_split(df_day[feature_names], df_day.probs, test_size=0.1)
+x_train.head()
+X_tarin.head()
+X_train.head()
+y_train.sum()
+y_test.sum()
+list(feature_names)
+{'[' in x for x in feature_names}
+import lightgbm as lgb
+get_ipython().run_line_magic('pinfo', 'lgb.LGBMClassifier')
+gbm = lgb.LGBMClassifier()
+get_ipython().run_line_magic('pinfo', 'gbm.fit')
+gbm.fit(X_train, y_train, eval_set[(X_test, y_test)])
+gbm.fit(X_train, y_train, eval_set=[(X_test, y_test)])
+gbm.best_iteration_
+gbm.feature_importances_
+from sklearn.metrics import average_precision_score, precision_score, recall_score, accuracy_score
+y_train_pred = gbm.predict(X_train, num_iteration=gbm.best_iteration_)
+gbm.best_iteration_
+y_train_pred = gbm.predict(X_train)
+y_train_pred
+y_test_pred = gbm.predict(X_test)
+average_precision_score(y_train, y_train_pred)
+average_precision_score(y_test, y_test_pred)
+y_test_pred
+precision_score(y_train, y_train_pred)
+precision_score(y_test, y_test_pred)
+recall_score(y_train, y_train_pred)
+recall_score(y_test, y_test_pred)
+accuracy_score(y_train, y_train_pred)
+accuracy_score(y_test, y_test_pred)
+get_ipython().run_line_magic('pinfo', 'lgb.LGBMClassifier')
+gbm.feature_importances_
+sorted(zip(gbm.feature_importances_, feature_names))
+estimator = lgb.LGBMClassifier(num_leaves=31)
+param_grid = {
+    'class_weight': ['balanced', None],
+    'learning_rate': [0.01, 0.1, 1],
+    'n_estimators': [20, 40, 60],
+}
+from sklearn.model_selection import GridSearchCV
+gbm = GridSearchCV(estimator, param_grid)
+gbm.fit(X_train, y_train)
+gbm.best_params_
+param_grid = {
+    'class_weight': ['balanced', None],
+    'learning_rate': [0.01, 0.1, 1],
+    'n_estimators': [40, 60, 80, 100],
+}
+gbm = GridSearchCV(estimator, param_grid)
+gbm.fit(X_train, y_train)
+gbm.best_params_
+gbm.best_estimator_
+model = gbm.best_estimator_
+y_train_pred = model.fit(X_train)
+y_train_pred = model.predict(X_train)
+y_test_pred = model.predict(X_test)
+accuracy_score(y_test, y_test_pred)
+accuracy_score(y_train, y_train_pred)
+gbm.best_params_
+gbm.best_index_
+gbm.best_score_
+gbm.n_splits_
+model = lgb.LGBMClassifier(num_leaves=31, **gbm.best_params_)
+model.fit(X_train, y_train, veal_set=[(X_test, y_test)])
+model.fit(X_train, y_train, eval_set=[(X_test, y_test)])
+y_train_pred = model.predict(X_train)
+y_test_pred = model.predict(X_test)
+accuracy_score(y_test, y_test_pred)
+accuracy_score(y_train, y_train_pred)
+feature names
+feature_names
+sorted(zip(gbm.feature_importances_, feature_names))
+sorted(zip(model.feature_importances_, feature_names))
+get_ipython().set_next_input('model = lgb.LGBMClassifier');get_ipython().run_line_magic('pinfo', 'lgb.LGBMClassifier')
+model = lgb.LGBMClassifier(num_leaves=31, metric='accuracy', **gbm.best_params_)
+model.fit(X_train, y_train, eval_set=[(X_test, y_test)])
+model.fit(X_train, y_train, eval_set=[(X_test, y_test)], feature_name=feature_names)
+model.fit(X_train, y_train, eval_set=[(X_test, y_test)], feature_names=feature_names)
+get_ipython().set_next_input('model = lgb.LGBMClassifier');get_ipython().run_line_magic('pinfo', 'lgb.LGBMClassifier')
+get_ipython().run_line_magic('pinfo', 'model.fit')
+feature_names
+model.fit(X_train, y_train, eval_set=[(X_test, y_test)], feature_name=list(feature_names))
+model.feature_importances_
+model.feature_importances()
+df_day
+df_day
+df_day.head()
+df_day.head
+df_day.event_count.min()
+df_day.columns
+get_ipython().run_line_magic('pinfo', 'df_day.columns.drop')
+scale_columns = df_day.columns.drop(['probs', 'event_count'])
+scale
+scale_columns
+df_day[scale_columns]/df_day.event_count
+df_day[scale_columns]
+df_day[scale_columns].index()
+df_day[scale_columns].index
+df_day[scale_columns]
+df_day.event_count
+df_day[scale_columns] / df_day.event_count
+df_day.event_id_0 / df_day.event_count
+for column in scale_columns:
+    df_day[column] /= df_day.event_count
+    
+    
+df_day
+X_train, X_test, y_train, y_test = train_test_split(df_day[feature_names], df_day.probs, test_size=0.1)
+estimator = lgb.LGBMClassifier(num_leaves=31)
+gbm.fit(X_train, y_train)
+gbm.best_params_
+model = gbm.best_estimator_
+y_train_pred = model.predict(X_train)
+y_test_pred = model.predict(X_test)
+accuracy_score(y_train, y_train_pred)
+accuracy_score(y_test, y_test_pred)

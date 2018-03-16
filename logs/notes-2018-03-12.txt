@@ -1,0 +1,13 @@
+probs_cause_codes = np.setdiff1d(probs.cause_code.unique(), normals.cause_code.unique(), assume_unique=True)
+array(['ESM_FAILURE', 'LLC_OR_SNDCP_FAILURE_A_OR_GB_MODE_ONLY',
+       'ESM_NETWORK_FAILURE', 'INTER_RAT_REDIRECTION'], dtype=object)
+--> idents 6 unhappy clients
+
+probs_sub_cause_codes = np.setdiff1d(probs.sub_cause_code.unique(), normals.sub_cause_code.unique(), assume_unique=True)
+array(['NO_ESM_INFORMATION_RESPONSE_FROM_UE',
+       'REMOVAL_OF_SUBSCRIPTION_DATA_IN_HLR', 'REJECT_CAUSE_15_FROM_RNC',
+       'CREATE_SESSION_RESPONSE_WITH_CC_FROM_SGW',
+       'INTERFERENCE_OF_ACTIVATION_DETACH', 'CSFB_FAILURE_DUE_TO_ENODEB'],
+      dtype=object)
+--> idents 11 unhappy clients (5 overlapping with probs_cause_codes)
+
